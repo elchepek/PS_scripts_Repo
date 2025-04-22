@@ -1,7 +1,4 @@
-﻿# Created  by: Jason Bagget
-# Reviewed by: Erick Sevilla 08/10/2021
-
-function Setup-AnsibleWinRM {
+﻿function Setup-AnsibleWinRM {
 #Requires -Version 3.0
 
 # Configure a Windows host for remote management with Ansible
@@ -34,9 +31,8 @@ function Setup-AnsibleWinRM {
 #
 # Use option -SubjectName to specify the CN name of the certificate. This
 # defaults to the system's hostname and generally should not be specified.
-
-
 # Support -Verbose option
+
 [CmdletBinding()]
 
 Param (
@@ -435,7 +431,6 @@ Else
     Throw "Unable to establish an HTTP or HTTPS remoting session."
 }
 
-
 Enable-WSManCredSSP -Role Server -Force
 Set-Item -Path WSMan:\localhost\Service\Auth\Certificate -Value $true
 START CMD "winrm set winrm/config/service @{CertificateThumbprint=`"$thumbprint`"}"
@@ -445,9 +440,6 @@ stop-service winrm
 start-service winrm
 
 Write-VerboseLog "PS Remoting has been successfully configured for Ansible."
-
-
-
 
 }
 
