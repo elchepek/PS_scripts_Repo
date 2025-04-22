@@ -1,4 +1,4 @@
-﻿function Setup-AnsibleWinRM {
+function Setup-AnsibleWinRM {
 #Requires -Version 3.0
 
 # Configure a Windows host for remote management with Ansible
